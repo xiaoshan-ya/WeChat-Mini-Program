@@ -1,0 +1,19 @@
+<!--pages/logs/me/me.wxml-->
+<view class="main">
+<view class = "second">
+<view  class = "second_item second_one">
+  <image id = "logo" src="{{person.pic}}"></image>
+</view>
+<view class = "second_item second_two">
+<view class = "second_two_one" style="font-size: 40rpx;">{{person.name}}</view>
+<view class = "second_two_two" style="color:#A9A9A9">UserID：{{person.uid}}</view>
+</view>
+<view bindtap="jump" class = "second_item  second_three"><van-icon  name="arrow" size="25"color="green"margin-top="5rpx" margin-bottom="10rpx"/></view>
+</view>
+<view class = "third">
+<view class="thire_one">level.{{level}}</view>
+<view class="thire_two"><progress percent="{{person.score%10*10}}" show-info active />
+</view>
+</view>
+<view class = "forth"><button bindtap="out">登出</button></view>
+</view>

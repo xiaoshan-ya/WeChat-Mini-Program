@@ -1,0 +1,23 @@
+<!--pages/logs/thingdetails/thingdetails.wxml-->
+<view id="main">
+<view style="height:20%;width:100%;display: flex; vertical-align: center;justify-content: center;font-size: 40rpx;">报名详情</view>
+<view class="box">
+  <view id="one" class="ti">No</view>
+  <view id="two" class="ti">UID</view>
+  <view id="three" class="ti">姓名</view>
+  <view id="four" class="ti">电话号码</view>
+  <view id="five" class="ti">状态</view>
+</view>
+<view wx:for="{{person}}"class="box">
+  <view id="one" class="little">{{index}}</view>
+  <view id="two" class="little" >{{item.uid}}</view>
+  <view id="three" class="little" >{{item.name}}</view>
+  <view id="four" class="little" >{{item.phonenumber}}</view>
+  <view id="five" wx:if="{{item.ok}}" class="litt">
+    <van-icon name="smile-o" size="40rpx" style="background-color: greenyellow;"/>
+  </view>
+  <view id="five" wx:if="{{!item.ok}}" class="litt">
+    <van-icon name="warning-o" size="40rpx" style="background-color: red;"/>
+  </view>
+</view>
+</view>

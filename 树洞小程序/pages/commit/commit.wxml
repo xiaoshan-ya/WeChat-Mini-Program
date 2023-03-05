@@ -1,0 +1,7 @@
+<view class="textarea">
+    <textarea placeholder="发条树洞吧" class="text-input" placeholder-style="color: #888; font-size: 38rpx" maxlength="-1"></textarea>
+</view>
+
+<view id="btn" class="click" bindtap="send">
+发布
+</view>

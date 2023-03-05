@@ -1,0 +1,122 @@
+<!--pages/release/release.wxml-->
+<!--标题-->
+<view style="margin:10px;">
+    <view class="weui-tittle">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px">志愿活动标题：</text>
+    </view>
+    <view class="input-tittle">
+        <textarea class="input" placeholder="请输入标题" bindinput="remarkinput"/>
+    </view>
+</view>
+<!--地点-->
+<view style="margin:10px;display: flex;flex-direction: row;flex-wrap: wrap;height: 50rpx">
+    <view class="weui-position">
+        <text class="name-positon" style="font-family:KaiTi;font-size:20px">开展地点：</text>
+    </view>
+    <view class="button-position" style="width: auto;height: 50rpx;margin-left: 100rpx;border-radius: 20rpx;" bindtap="getposition">
+        <span height="100%" style="font-size: 28rpx;margin-left: 25rpx;margin-right: 25rpx;color:#708090">{{province}}/{{city}}/{{county}}</span>
+    </view>
+    <van-popup show="{{ isShowAreaSelect }}" position="bottom" custom-style="height: 50%" bind:close="closeAreaSelect">
+    <van-area area-list="{{ areaList }}" :columns-num="3" bind:cancel="closeAreaSelect" bind:confirm="confirmArea" />
+    </van-popup>
+</view>
+<!--时间-->
+<view style="margin: 10px;">
+    <view class="weui-time">
+        <text class="name-positon" style="font-family:KaiTi;font-size:20px">志愿活动开展时间-结束时间：</text>
+    </view>
+    <view class="container-time">
+        <button class="button-position" style="width: 100px;color:#708090;font-size: 28rpx" size="mini" bindtap="getmintime">{{mintime}}</button>
+        <view class="separator">
+            <text>----</text>
+        </view>
+        <button class="button-position" style="width: 100px;color:#708090;font-size: 28rpx" size="mini" bindtap="getmaxtime">{{maxtime}}</button>
+    </view>
+    <van-popup show="{{ isShowmintimeSelect }}" position="bottom" custom-style="height: 50%" bind:close="closemintimeSelect">
+        <van-picker show-toolbar columns="{{timelist}}" bind:cancel="closemintimeSelect" bind:confirm='confirmmintime'/>
+    </van-popup>
+    <van-popup show="{{ isShowmaxtimeSelect }}" position="bottom" custom-style="height: 50%" bind:close="closemaxtimeSelect">
+        <van-picker show-toolbar columns="{{timelist}}" bind:cancel="closemaxtimeSelect" bind:confirm='confirmmaxtime'/>
+    </van-popup>
+</view>
+<!--需求人数-->
+<view style="margin: 10px;display: flex;">
+    <view class="weui-num">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px">志愿需求人数:</text>
+    </view>
+    <view class="input-num" style="width:200rpx;margin-left: 100rpx;">
+        <input placeholder="请输入人数" style="text-align: center;font-size: 30rpx" bindinput="remarkNuminput"/>
+    </view>
+</view>
+<!--是否可超额报名-->
+<view style="margin: 10px;display: flex;flex-direction: row;flex-wrap: wrap;">
+    <view class="judge-over">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px;">是否可超额报名:</text>
+    </view>
+    <view class="container-time">
+        <view class="button-position" style="background-color: {{ButtonColor1}};height: 50rpx;padding-left: 30rpx;padding-right: 30rpx;margin-left: 100rpx;" bindtap="yes">是</view>
+        <view class="button-position" style="background-color: {{ButtonColor2}};height: 50rpx;margin-left: 100rpx;padding-left: 30rpx;padding-right: 30rpx;" bindtap="no">否</view>
+    </view>
+    <view wx:if="{{over}}" style="display: flex;margin-top: 30rpx;">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px;">最大报名人数:</text>
+        <input class="input-num" placeholder="请输入人数" style="text-align: center;width:200rpx;margin-left: 100rpx;font-size: 30rpx;" bindinput="remarkMaxNuminput"/>
+    </view>
+</view>
+<!--每日志愿时间-->
+<view style="margin: 10px; display: flex;">
+    <view class="input-out">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px;">每日志愿时长:</text>
+    </view>
+    <view style="display: flex;">
+        <button class="button-position" style="width: 100px;margin-left: 100rpx;margin-right: 20px;font-size: 30rpx;height:60rpx;width:200rpx;" size="mini" bindtap="getvolunteertime">{{volunteerTime}}</button>
+        <text>小时</text>
+    </view>
+    <van-popup show="{{ isShowVolunteerTime }}" position="bottom" custom-style="height: 50%" bind:close="closevolunteertimeSelect">
+        <van-picker show-toolbar columns="{{volunteerTimeList}}" bind:cancel="closevolunteertimeSelect" bind:confirm='confirmvolunteertime'/>
+    </van-popup>
+</view>
+<!--提前退出时限-->
+<view style="margin: 10px; display: flex;">
+    <view class="input-out">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px;">允许提前退出时限:</text>
+    </view>
+    <view style="display: flex;">
+        <input style="width: 70px; border: 1px solid black;margin-left: 30px;margin-right: 10px; text-align: center;" placeholder="1~7" bindinput="getout"/>
+        <text>天前</text>
+    </view>
+</view>
+<!--描述-->
+<view style="margin: 10px;">
+    <view class="weui-describe">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px;">志愿活动详细描述与补充:</text>
+    </view>
+    <view class="input-tittle" style="height: 140px;">
+        <textarea class="input" style="height: 140px;" placeholder="请输入" bindinput="remarkinputDescribe"/>
+    </view>
+</view>
+<!--图片-->
+<view style="margin: 10px;">
+    <view class="weui-photo" style="display: flex;margin-top: 10px;">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px;margin-top: 10px;">图片上传:(最多九张图片)</text>
+    </view>
+    <view style="display:inline">
+        <image src="{{FilePath[0]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>0}}" bindtap="preview" bindlongpress="delete" data-num='0'></image>
+        <image src="{{FilePath[1]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>1}}" bindtap="preview" bindlongpress="delete" data-num='1'></image>
+        <image src="{{FilePath[2]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>2}}" bindtap="preview" bindlongpress="delete" data-num='2'></image>
+        <image src="{{FilePath[3]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>3}}" bindtap="preview" bindlongpress="delete" data-num='3'></image>
+        <image src="{{FilePath[4]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>4}}" bindtap="preview" bindlongpress="delete" data-num='4'></image>
+        <image src="{{FilePath[5]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>5}}" bindtap="preview" bindlongpress="delete" data-num='5'></image>
+        <image src="{{FilePath[6]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>6}}" bindtap="preview" bindlongpress="delete" data-num='6'></image>
+        <image src="{{FilePath[7]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>7}}" bindtap="preview" bindlongpress="delete" data-num='7'></image>
+        <image src="{{FilePath[8]}}" class="photoStyle" style="width: 50px;height: 50px;" wx:if="{{count>8}}" bindtap="preview" bindlongpress="delete" data-num='8'></image>
+        <image class="photoStyle" src="/images/AddPhoto.jpeg" mode="aspectFit"  style="width: 50px; height:50px;" wx:if="{{count<9}}" bindtap="getphoto"></image>
+    </view>
+</view>
+<!--发布按钮-->
+<view style="margin: 10px;">
+    <view style="height:50rpx;background-color: #90EE90;text-align: center;" bindtap="release">
+        <text class="name-tittle" style="font-family:KaiTi;font-size:20px;">发布</text>
+    </view>
+</view>
+
+

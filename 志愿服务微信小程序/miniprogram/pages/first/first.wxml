@@ -1,0 +1,22 @@
+<!--pages/first/first.wxml-->
+<swiper class="sw">
+    <swiper-item>
+        <view class="item">A</view>
+    </swiper-item>
+    <swiper-item>
+        <view class="item">B</view>
+    </swiper-item>
+    <swiper-item>
+        <view class="item">C</view>
+    </swiper-item>
+</swiper>
+<button type="primary" plain bindtap="getit">q
+    <view> yes</view>
+    <view>{{count}}</view>
+</button>
+
+<view>
+    <image src="{{source}}" mode="widthFix"></image>
+</view>
+
+<input bindinput="inout" />

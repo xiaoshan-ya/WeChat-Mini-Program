@@ -1,0 +1,52 @@
+<!--pages/my/my.wxml-->
+<view  class="myview">
+    <view  class="mytopview">
+       <view  class="imgview">
+        <van-uploader file-list="{{ fileList }}" class="pic" max-count="1" bind:after-read="afterRead" accept="image" deletable="{{ true }}">
+        <van-image  top="20" width="93" height="100" fit=""src="{{person.pic}}"></van-image>
+        </van-uploader>
+       </view>
+       <view  class="infoview">
+           <view class="box">
+              <view>姓名:</view>
+              <view>
+                  <input type="text" maxlength="10" bindinput="nameinput" value="{{person.name}}">
+                  </input>
+              </view>
+          </view>
+          <view class="box">
+              <view>性别:</view>
+                <view id="cho">
+                  <van-radio-group value="{{person.gen}}"  bindchange="bandleChange" direction="horizontal">
+                    <van-radio name="male"> 男</van-radio>
+                    <van-radio name="female"> 女</van-radio>
+                  </van-radio-group>
+                </view>
+          </view>
+           <view class="box_1">
+              <view>个人简介:</view>
+              <view id="longtext">
+                  <textarea id="realtext" value="{{person.longtext}}" maxlength="100" placeholder="最多100字" bindinput="longchange">
+                  <view id="hint"> {{textlongnow}}/{{textlongmax}}</view>
+                  </textarea>
+              </view>
+           </view>
+        </view>
+    </view>
+    <view  class="mylistview">
+        <block  wx:for="{{listmenus}}" wx:for-item="key">
+          <view  class="listview">
+              <view class="tipview">{{key}}:</view>
+              <view class="txtview">
+                  <block wx:if="{{key=='电子邮箱'}}">
+                    <input class="realtxtview" type="text" maxlength="33" bindinput="mailchange" value="{{person.mail}}"></input>
+                  </block>
+                  <block wx:if="{{key=='电话号码'}}">
+                    <input class="realtxtview" type="text" maxlength="33" bindinput="phonechange" value="{{person.phone}}"></input>
+                  </block>
+              </view>
+          </view>
+        </block>
+    </view>
+    <view id="final"><van-button bind:click="oover" type="danger" size="large" id="over">注销</van-button></view>
+</view>

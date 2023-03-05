@@ -1,0 +1,41 @@
+/* pages/release/release.wxss */
+
+.input-tittle{
+    background-color:white;
+    /* 边框*/
+    border:1px solid gray;
+    padding: 10rpx;
+    border-radius: 5px;
+    /* 大小*/
+    height: 70px;
+    /*颜色*/
+}
+
+.button-position{
+    border: 1px solid gray;
+    z-index: 2;
+    width: 45%;
+}
+
+.button-time{
+    margin: 10px auto;
+}
+.separator{
+    text-align: center;
+
+}
+.container-time{
+    display: flex;
+}
+.input-num{
+    border:1px solid gray;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+}
+
+.photoStyle{
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

@@ -1,0 +1,29 @@
+/* pages/logs/my/my.wxss */
+.main{
+  width: 750rpx;
+  height: 1334rpx;
+  display: flex;
+  flex-direction: column;
+}
+.box{
+  width: 100%;
+  height:25%;
+}
+.boxx_1{
+  top:70%;
+  width:70%;
+  height:30%;
+  background-color: khaki;
+}
+.boxx_2{
+  top:35%;
+  width:70%;
+  height:30%;
+  background-color: khaki;
+}
+.boxx_3{
+  top:0%;
+  width:70%;
+  height:30%;
+  background-color:khaki;
+}

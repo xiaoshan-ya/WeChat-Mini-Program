@@ -1,0 +1,21 @@
+<!--pages/logs/my/my.wxml-->
+<view class="main">
+  <view class="box">
+    <button class="boxx_1" bindtap="gotovolunteer">
+      <van-icon name="shop" size="25"/>
+      <span style="font-size: 40rpx;font-family: 楷体;">我的参与</span>
+    </button>
+  </view>
+  <view class="box">
+    <button class="boxx_2"  bindtap="gotostar">
+      <van-icon name="shop-collect" size="25"/>
+      <span style="font-size: 40rpx;font-family: 楷体;">我的订阅</span>
+    </button >
+  </view>
+  <view class="box">
+    <button class="boxx_3"  bindtap="gotooutput">
+      <van-icon name="manager" size="25"/>
+      <span style="font-size: 40rpx;font-family: 楷体;">我的发布</span>
+    </button>
+  </view>
+</view>

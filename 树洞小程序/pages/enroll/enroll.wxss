@@ -1,0 +1,76 @@
+page {
+    left: 0rpx;
+    right: 0rpx;
+    background-color: white;
+}
+
+.first-input {
+    width: 90%;
+    height: 100rpx;
+    margin-top: 80rpx;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex; /**/
+    flex-direction: row; /**/
+    align-items: center; /**/
+    justify-content: center; /**/
+    background-color: #F2F2F2;
+}
+
+.second-input {
+    width: 90%;
+    height: 100rpx;
+    margin-top: 20rpx;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex; /**/
+    flex-direction: row; /**/
+    align-items: center; /**/
+    justify-content: center; /**/
+    background-color: #F2F2F2;
+}
+
+.placeholder {
+    font-size: 30rpx;
+    color: #ccc;
+
+}
+
+.input {
+    line-height: 100rpx; /*行高应和外部view中一样，可以保证只有一行*/
+    font-size: 30rpx;
+    color: black; /*内部字的颜色*/
+    margin-left: 20rpx;
+    width: 100%;
+}
+
+.click {
+    width: 90%;
+    height: 100rpx;
+    margin-top: 20rpx;
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height: 100rpx;
+    margin-top: 100rpx;
+    background-color: #f76968;
+    text-align: center;
+    color: white;
+    font-size: 35rpx;
+
+}
+
+.load {
+    width: 90%;
+    height: 50rpx;
+    margin: auto;
+    margin-top: 30rpx;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
+.text {
+    font-size: 28rpx;
+    margin-left: 15rpx;
+    font-family: "微软雅黑";
+}

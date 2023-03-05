@@ -1,0 +1,37 @@
+<!--pages/logs/my_star/my_star.wxml-->
+<!--pages/logs/my_volunteer/my_volunteer.wxml-->
+<view id="main">
+    <view id="fix">
+  <view id="head">我的订阅</view>
+  <view id="buttons">
+    <button id="b1" bindtap="cho_1" style="background-color:{{color_1}}"><span style="font-size: 30rpx;">未开始</span></button>
+    <button id="b2" bindtap="cho_2" style="background-color:{{color_2}}"><span style="font-size: 30rpx;">已结束</span></button>
+  </view>
+</view>
+  <view id="kong"></view>
+  <view wx:for="{{volunteerList}}" wx:for-item="item">
+    <view wx:if="{{(!time[index]&&!choosedone)||(time[index]&&choosedone)}}">
+    <view id="list" bindtap="getDetails"  data-details="{{item}}">
+      <view id="ima">
+        <van-image round width="80%" height="80%" id="pic" src="{{item.Photosrcs[0]}}"></van-image>
+      </view>
+      <view id="con">
+        <view id="top">{{item.tittle}}</view>
+        <view id="line">
+          <view id="loc">{{item.position}}</view>
+          <view wx:if="{{item.over==true}}">
+            <view id="num">{{item.now}}/{{item.maxnum}}</view>
+          </view>
+          <view wx:else>
+            <view id="num">{{item.now}}/{{item.num}}</view>
+          </view>
+        </view>
+        <view id="miao">
+          <text id="realtext">{{item.description}}</text>
+        </view>
+        <view id="over">{{item.starttimeStr}}-{{item.endtimeStr}}</view>
+      </view>
+  </view>
+</view>
+</view>
+</view>

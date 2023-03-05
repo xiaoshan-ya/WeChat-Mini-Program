@@ -1,0 +1,23 @@
+/* pages/first/first.wxss */
+.sw{
+    height: 150px;
+}
+
+.item {
+    line-height: 150px;
+    text-align: center;
+    background-color: greenyellow;
+}
+/*
+swiper-item :nth-child(1).item{
+    background-color: red;
+}
+
+swiper-item :nth-child(2).item{
+    background-color: palegreen;
+}
+
+swiper-item :nth-child(3).item{
+    background-color: blue;
+}
+*/

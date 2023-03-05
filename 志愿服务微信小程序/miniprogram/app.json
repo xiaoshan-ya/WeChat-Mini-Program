@@ -1,0 +1,56 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/collect/collect",
+        "pages/release/release",
+        "pages/me_setting/me_setting",
+        "pages/first/first",
+        "pages/index/index",
+        "pages/information/information",
+        "pages/my_volunteer/my_volunteer",
+        "pages/me/me",
+        "pages/release/position/position",
+        "pages/details/details",
+        "pages/my/my",
+        "pages/my_output/my_output",
+        "pages/my_star/my_star",
+        "pages/thingdetails/thingdetails",
+        "pages/register/register"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/collect/collect",
+                "text": "征集大厅",
+                "iconPath": "./images/tag_1.png",
+                "selectedIconPath": "./images/tag_0.png"
+            },
+            {
+                "pagePath": "pages/release/release",
+                "text": "发布",
+                "iconPath": "./images/tag_2.png",
+                "selectedIconPath": "./images/tag_0.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的志愿",
+                "iconPath": "./images/tag_3.png",
+                "selectedIconPath": "./images/tag_0.png"
+            },
+            {
+                "pagePath": "pages/me/me",
+                "text": "关于我的",
+                "iconPath": "./images/tag_4.png",
+                "selectedIconPath": "./images/tag_0.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

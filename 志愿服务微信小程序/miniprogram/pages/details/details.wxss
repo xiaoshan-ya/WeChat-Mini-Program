@@ -1,0 +1,49 @@
+/* pages/details/details.wxss */
+.PhotosShow{
+    height: 200px;
+    border: 1px solid gray;
+    background-color: rgb(236, 234, 234);
+}
+
+.PhotoShow{
+    height: 100%;
+    text-align: center;
+}
+
+.Photo{
+    height: 100%;
+}
+
+.containerFrame{
+    border: 1px solid gray;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgb(236, 234, 234);
+}
+/* rgb(168, 160, 160);*/
+.tittle{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.positionNum{
+    font-weight: 1px;
+    color:rgb(136, 129, 129);
+}
+
+.descripe{
+    font-size: 18px;
+}
+
+.button{
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+.buttonFont{
+    font-weight: 500;
+    font-size: 25px;
+}

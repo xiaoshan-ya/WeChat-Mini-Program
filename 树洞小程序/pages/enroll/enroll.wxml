@@ -1,0 +1,20 @@
+<view class="background">
+    <view class="first-input">
+        <!-- placeholder: 底纹 -->
+        <input placeholder="用户名" placeholder-class="placeholder" class="input" type="text" bindinput="userNameInput" />
+    </view>
+    <view class="second-input">
+        <input placeholder="手机号" placeholder-class="placeholder" class="input" type="number" bindinput="phoneNumberInput" />
+    </view>
+    <view class="second-input">
+        <input placeholder="登录密码" placeholder-class="placeholder" class="input" type="password" bindinput="passwordInput" bindtap="checkPhoneNumber"/>
+    </view>
+    <view class="second-input">
+        <input placeholder="确认密码" placeholder-class="placeholder" class="input" type="password" bindinput="passwordInputAck" />
+    </view>
+
+    <view class="click" bindtap="register">注册</view>
+    <view class="load" bindtap="login">
+        <text class="text">已有账号，点我登录</text>
+    </view>
+</view>

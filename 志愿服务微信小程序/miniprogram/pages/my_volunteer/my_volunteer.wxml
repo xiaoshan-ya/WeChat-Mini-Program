@@ -1,0 +1,50 @@
+<!--pages/logs/my_volunteer/my_volunteer.wxml-->
+<view id="main">
+<view id="fix">
+  <view id="head">我的参与</view>
+  <view id="buttons">
+    <button id="b1" bindtap="cho_1" style="background-color:{{color_1}}"><span style="font-size: 30rpx;">未开始</span></button>
+    <button id="b2" bindtap="cho_2" style="background-color:{{color_2}}"><span style="font-size: 30rpx;">已结束</span></button>
+  </view>
+  </view>
+  <view id="kong"></view>
+  <view wx:for="{{volunteerList}}" wx:for-item="item">
+    <view wx:if="{{(!time[index]&&!choosedone)||(time[index]&&choosedone)}}">
+    <view id="list" bindtap="getDetails" data-details="{{item}}">
+      <view id="ima">
+        <van-image round width="80%" height="80%" id="pic" src="{{item.Photosrcs[0]}}"></van-image>
+      </view>
+      <view id="con">
+        <view id="top">{{item.tittle}}</view>
+        <view id="line">
+          <view id="loc">{{item.position}}</view>
+          <view wx:if="{{item.over==true}}">
+            <view id="num">{{item.now}}/{{item.maxnum}}</view>
+          </view>
+          <view wx:else>
+            <view id="num">{{item.now}}/{{item.num}}</view>
+          </view>
+        </view>
+        <view id="miao">
+          <text id="realtext">{{item.description}}</text>
+        </view>
+        <view id="over">
+          <view id="a">{{item.starttimeStr}}-{{item.endtimeStr}}</view>
+          <view wx:if="{{!time[index]&&!choosedone}}">
+          <view  id="b">
+          <van-button bind:click="qian" data-idi="{{item.vonlunteerId}}"type="primary"size="small"><span style="font-size: 40rpx;z-index:30;">签到</span></van-button>
+            </view>
+        </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>
+<van-popup show="{{show}}" position="bottom" custom-style="height: 20%;" bind:close="onClose" class="pop">
+  <view style="width:100%;height:100%;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+    <view style="font-size: 40rpx;">输入签到码:</view>
+    <view><input style="background-color:honeydew;"type="text" maxlength="6" value="{{person.name}}" bindinput="sec"placeholder="（最多6位）"></input></view>
+    <view><van-button  bind:click="push" size="small"type="primary">完成</van-button></view>
+  </view>
+</van-popup>

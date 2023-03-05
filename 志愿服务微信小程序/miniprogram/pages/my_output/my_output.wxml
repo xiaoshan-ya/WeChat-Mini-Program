@@ -1,0 +1,55 @@
+<!--pages/logs/my_output/my_output.wxml-->
+<view id="main">
+<view id="fix">
+  <view id="head">我的发布</view>
+  <view id="buttons">
+    <button id="b1" bindtap="cho_1" style="background-color:{{color_1}}"><span style="font-size: 30rpx;">未开始</span></button>
+    <button id="b2" bindtap="cho_2" style="background-color:{{color_2}}"><span style="font-size: 30rpx;">已结束</span></button>
+  </view>
+</view>
+<view id="kong"></view>
+  <view wx:for="{{volunteerList}}" wx:for-index="index" wx:for-item="item" wx:key="volunteerList">
+    <view wx:if="{{(!time[index]&&!choosedone)||(time[index]&&choosedone)}}">
+    <view id="list" bindtap="getDetails" data-details="{{item}}">
+      <view id="ima">
+        <van-image round width="80%" height="80%" id="pic" src="{{item.Photosrcs[0]}}"></van-image>
+      </view>
+      <view id="con">
+        <view id="top">{{item.tittle}}</view>
+        <view id="line">
+          <view id="loc">{{item.position}}</view>
+          <view wx:if="{{item.over==true}}">
+            <view id="num">{{item.now}}/{{item.maxnum}}</view>
+          </view>
+          <view wx:else>
+            <view id="num">{{item.now}}/{{item.num}}</view>
+          </view>
+        </view>
+        <view id="miao">
+          <text id="realtext">{{item.description}}</text>
+        </view>
+        <view >
+        <view wx:if="{{!time[index]&&!choosedone}}" id="over">
+        <view wx:if="{{!item.sign_in}}" id="ok">
+          <van-button type="primary"size="small" bind:click="make" data-index="{{index}}" data-ide="{{item.vonlunteerId}}"><span style="font-size: 40rpx;">发布签到</span></van-button>
+        </view>
+        <view wx:else id="ok">
+          <van-button type="primary" size="small" bind:click="look" data-index="{{index}}"><span style="font-size: 30rpx;">查看签到码</span></van-button>
+          <van-button color= "#FF6347" size="small" bind:click="over" data-id="{{item.vonlunteerId}}" data-index="{{index}}"><span style="font-size: 40rpx;" >结束签到</span></van-button>
+        </view>
+        <view id="okok">
+          <van-button color= "#FF6347" size="small" bind:click="delete" data-index="{{index}}" data-id="{{item.vonlunteerId}}"><span style="font-size: 40rpx;" >删除</span></van-button>
+        </view>
+        </view>
+        <view wx:else style="padding-left: 30%;">{{item.starttimeStr}}-{{item.endtimeStr}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>
+<van-popup show="{{show}}" position="bottom" custom-style="height: 20%" bind:close="onClose" >
+<view style="width:100%;height:100%;display: flex;align-items: center;justify-content: center;">
+<view style="font-size: 40rpx;">签到码：{{secret}}</view>
+</view>
+</van-popup>

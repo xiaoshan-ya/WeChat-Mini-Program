@@ -1,0 +1,160 @@
+/* pages/collect.wxss */
+.input{
+    border:1px solid black;
+    border-radius: 5px;
+    height: 30px;
+    width: 80%;
+}
+
+.module{
+    margin: 10px;
+}
+
+.button-position{
+    border: 1px solid black;
+    z-index: 2;
+}
+
+.sortView{
+    border-radius: 8px;
+    margin-left: 10px;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    flex: 2;
+}
+
+.sortFont{
+    flex: 2;
+    margin-top: 5px;
+    font-size: 12px;
+    font-family: FangSong;
+    text-align: center;
+    height: 20px;
+}
+
+.showVolunteer{
+    border: 1px solid black;
+    height: 100px;
+}
+
+.tittle{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-height: 30px;
+    margin-left: 30px;
+    font-family: SimHei;
+    font-size: 20px;
+    letter-spacing: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient:vertical;
+    word-break:break-all;
+}
+
+.description{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-height: 15px;
+    margin-left: 30px;
+    font-family: KaiTi;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+.position{
+    margin-left: 60px;
+    font-size: 15px;
+}
+
+#list{
+    font-family: 楷体;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:22vh;
+    align-items: center;
+    background-color: #DCDCDC;
+  }
+  #content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+    width: 96%;
+    height:95%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 30rpx;
+    background-color: white;
+  }
+  #ima{
+    width: 26%;
+    height:90%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  #con{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height:100%;
+  }
+  #top{
+    height:20%;
+    width:100%;
+    font-size: 50rpx;
+    font-weight: bold;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;/*设置对齐模式：垂直对齐*/
+    -webkit-line-clamp: 1;/*设置多行的行数*/
+    line-height: normal;
+  }
+  #line{
+    height:20%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  #miao{
+    margin-top: 0px;
+    width:100%;
+  }
+  #loc{
+    flex: 3;
+    overflow: hidden;/*超出的部分隐藏*/
+    text-overflow: ellipsis;/*隐藏的部分用省略号代替*/
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;/*设置对齐模式：垂直对齐*/
+    -webkit-line-clamp: 1;/*设置多行的行数*/
+    line-height: normal;
+  }
+  #num{
+    flex: 1;
+  }
+  #realtext{
+    display: -webkit-box;
+    word-break:break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;/*设置对齐模式：垂直对齐*/
+    -webkit-line-clamp: 2;/*设置多行的行数*/
+    line-height: normal;
+    background-color:honeydew;
+  }  
+
+  #time{
+    text-align: right;
+    width:100%
+  }

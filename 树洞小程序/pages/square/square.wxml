@@ -1,0 +1,7 @@
+<!-- 引入其他页面 -->
+<include src="/pages/bottom_menu/bottom_menu" />
+
+<!-- 滑动条 -->
+<scroll-view class="scroll" scroll-y="true" >
+
+</scroll-view>

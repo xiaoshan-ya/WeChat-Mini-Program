@@ -1,0 +1,10 @@
+
+<!-- 需要使用 button 来授权登录 -->
+<view wx:if="{{canIUse}}" class="load">
+    <button class="bottom" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view class="line">————·————</view>
+    <view class="text">欢迎使用小程序，请先授权登录</view>
+</view>
+<view wx:else>请升级微信版本</view>
+
+<!-- <input type="text" style="padding-left: 20px ; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; background-color: rgb(163, 163, 211); color: blue;" bindinput="check" /> -->

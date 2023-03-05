@@ -1,0 +1,44 @@
+/* pages/logs/thingdetails/thingdetails.wxss */
+#main{
+  display: flex;
+  flex-direction: column;
+  font-family: 楷体;
+}
+.box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#one{
+  flex:1
+}
+#two{
+  flex:3
+}
+.ti{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: solid 1rpx wheat;
+}
+#three{
+  flex:3
+}
+#four{
+  flex:5
+}
+#five{
+  width:10%;
+}
+.litt{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.little{
+  height:10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  border: solid 1rpx wheat;
+}

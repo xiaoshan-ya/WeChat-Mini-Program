@@ -1,0 +1,60 @@
+<!--pages/details/details.wxml-->
+<!--图片展示-->
+<swiper class="PhotosShow" indicator-dots autoplay="true" circular="true">
+    <view wx:for="{{detail.Photosrcs}}">
+        <swiper-item class="PhotoShow"> 
+            <image src="{{item}}" class="Photo" mode="aspectFit" data-current="{{item}}" bindtap="watchPhoto" ></image>
+        </swiper-item>
+    </view>
+</swiper>
+<view class="containerFrame">
+    <!--标题-->
+    <view style="margin: 10px;">
+        <text class="tittle"> {{detail.tittle}} </text>
+    </view>
+    <!--地点-->
+    <view style="margin: 10px;margin-left: 30px;">
+        <van-icon name="location-o" />
+        <text class="positionNum" style="margin-left: 5px;">{{detail.position}}</text>
+    </view>
+    <!--退出实现-->
+    <view style="margin: 10px;margin-left: 30px;">
+        <van-icon name="underway-o" />
+        <text class="positionNum" style="margin-top: 20px;" > 允许退出最大时限：{{detail.out}}天前 </text>
+    </view>
+    <!--人数情况-->
+    <view style="margin: 10px; margin-left: 30px;flex-direction: row;flex-wrap: nowrap;display: flex;">
+        <van-icon name="friends-o" />
+        <text class="positionNum" style="flex: 3;">{{detail.num}}<text wx:if="{{detail.over}}">(可以超额报名)</text><text wx:else>(不可以超额报名)</text></text>
+        <text class="positionNum" wx:if="{{detail.over}}" style="flex: 1;">{{detail.now}}/{{detail.maxnum}}</text>
+        <text class="positionNum" wx:else style="flex: 1;">{{detail.now}}/{{detail.num}}</text> 
+    </view>    
+</view>
+<!--描述和时间-->
+<view class="containerFrame">
+    <!--描述-->
+    <view style="margin:10px">
+        <text class="descripe"> <text style="font-weight: 600;">详情介绍：</text> {{detail.description}} </text>
+    </view>
+    <!--时间-->
+    <view style="margin-left: 30px;margin-bottom: 10px;">
+        <van-icon name="clock-o" />
+        <text class="positionNum"> {{detail.starttimeStr}} —— {{detail.endtimeStr}} </text>
+    </view>
+</view>
+<!--咨询/订阅/报名-->
+<view style="display: flex;margin: 0.5%;">
+    <view class="button" style="border-top-left-radius: 20px;border-bottom-left-radius: 20px;background-color: rgb(255, 166, 0);" bindtap="getSubscribe">
+        <van-icon wx:if="{{!isSubscribe}}" size="25px" class="buttonIcon" name="like-o" />
+        <van-icon wx:else size="25px" class="buttonIcon" name="like" />
+        <text class="buttonFont">订阅</text>
+    </view>
+    <view class="button" wx:if="{{!isRelease}}" style="background-color: rgb(255, 66, 0);border-top-right-radius: 20px;border-bottom-right-radius: 20px;" bindtap="getApply">
+        <van-icon wx:if="{{!isApply}}" size="25px" class="buttonIcon" name="passed" />
+        <van-icon wx:else size="25px" class="buttonIcon" name="checked" />
+        <text class="buttonFont">报名</text>
+    </view>
+    <view class="button" wx:else style="background-color: rgb(255, 66, 0);border-top-right-radius: 20px;border-bottom-right-radius: 20px;" bindtap="getApplyDetails">
+        <van-icon size="25px" class="buttonIcon" name="orders-o" /><text class="buttonFont">详情</text>
+    </view>
+</view>

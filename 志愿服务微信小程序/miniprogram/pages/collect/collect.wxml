@@ -1,0 +1,131 @@
+<!--pages/collect.wxml-->
+<!--搜索和筛选栏-->
+<view style="border: 1px solid black;position: fixed;width:100%;height:15vh;background-color: aliceblue; z-index:300;" >
+<view class="module" style="display: flex;">
+    <!--搜索-->
+    <input class="input"  bindinput="getinput"/>
+    <image style="height: 30px;width: 30px;border:1px solid black; border-radius: 5px;" src="../../images/search.jpeg" bindtap="search"></image>
+    <!--筛选-->
+    <van-icon name="qr" size="30px" style="height: 30px;width: 30px;margin-left: 10px;" bindtap="screen" />
+    <van-popup show="{{isShowScreenSelect}}" position="right" custom-style="width:80%;height:100%" bind:close="closeScreenShow">
+        <!--地点筛选-->
+        <view class="module">
+            <text style="font-family:KaiTi;font-size:25px">地点：</text>
+            <button class="button-position" style="width: 100%;" bindtap="getposition">
+            <view>{{province}}/{{city}}/{{county}}</view>
+            </button>
+            <van-popup show="{{ isShowAreaSelect }}" position="bottom" custom-style="height: 50%" bind:close="closeAreaSelect">
+            <van-area area-list="{{ areaList }}" :columns-num="3" bind:cancel="closeAreaSelect" bind:confirm="confirmArea" />
+            </van-popup>
+        </view>
+        <!--开始时间筛选-->
+        <view class="module">
+            <text style="font-family:KaiTi;font-size:25px">开始时间： </text>
+        </view>
+        <view class="module" style="display: flex;">
+        <button class="button-position" style="width: 110px;" size="mini" data-type="startmin" bindtap="getTime">{{startmintime}}</button>
+        <view class="separator">
+            <text>~</text>
+        </view>
+        <button class="button-position" style="width: 110px;" size="mini" data-type="startmax" bindtap="getTime">{{startmaxtime}}</button>
+        </view>
+    <!--时间筛选弹出框-->    
+    <van-popup show="{{ isShowTimeSelect }}" position="bottom" custom-style="height: 50%" bind:close="closeTimeSelect">
+        <van-picker show-toolbar columns="{{timelist}}" bind:cancel="closeTimeSelect" bind:confirm='confirmTime'/>
+    </van-popup>
+        <!--截止时间筛选-->
+        <view class="module">
+            <text style="font-family:KaiTi;font-size:25px">截止时间： </text>
+        </view>
+        <view class="module" style="display: flex;">
+            <button class="button-position" style="width: 110px;" size="mini" data-type="endmin" bindtap="getTime">{{endmintime}}</button>
+            <view class="separator">
+                <text>~</text>
+            </view>
+            <button class="button-position" style="width: 110px;" size="mini" data-type="endmax" bindtap="getTime">{{endmaxtime}}</button>
+        </view>
+        <!--规模筛选-->
+        <view class="module">
+            <text style="font-family:KaiTi;font-size:25px">规模： </text>
+        </view>
+        <view class="module">
+            <view class="module">
+            <button class="button-position" style="width: 45%;background-color: {{scalecolor1}};" size="mini" data-scale="0~10" bindtap="getScale"> 0~10 </button>
+            <button class="button-position" style="width: 45%;margin-left: 5%;background-color: {{scalecolor2}};" size="mini" data-scale="10~50" bindtap="getScale"> 10~50 </button>
+            <button class="button-position" style="width:45%;background-color: {{scalecolor3}};" size="mini" data-scale="50~100" bindtap="getScale"> 50~100 </button>
+            <button class="button-position" style="width: 45%;margin-left: 5%;background-color: {{scalecolor4}};" size="mini" data-scale=">100" bindtap="getScale"> >100 </button>
+            </view>
+        </view>
+        <!--确定按钮-->
+        <view style="margin: 10px;">
+            <view style="background-color: greenyellow;text-align: center;" bindtap="confirm">
+            <text style="font-family:KaiTi;font-size:25px;">确定</text>
+            </view>
+        </view>
+    </van-popup>
+</view>
+<!--排序-->
+<view style="display: flex; margin: 10px;">
+    <view class="sortView" style="background-color: {{sortColor1}};" data-sortType="numRemain" bindtap="getSort"> 
+        <text class="sortFont"> 剩余人数 </text>
+        <van-icon name="arrow-down" style="height: 100%;width: 20%;flex: 1; margin-top: 2px;" />
+    </view>
+    <view class="sortView" style="background-color: {{sortColor2}};" data-sortType="allTime" bindtap="getSort"> 
+        <text class="sortFont"> 志愿时间 </text>
+        <van-icon name="arrow-down" style="height: 100%;width: 20%;margin-left: 1px; margin-top: 2px;" />
+    </view>
+    <view class="sortView" style="background-color:{{sortColor3}}" data-sortType="startTime" bindtap="getSort"> 
+        <text class="sortFont"> 开始时间 </text>
+        <van-icon name="arrow-down" style="height: 100%;width: 20%;margin-left: 1px; margin-top: 2px;" />
+    </view>
+    <van-icon name="sort" size="30px" style="height: 30px;width: 30px;flex: 1;" />
+</view>
+</view>
+<!--志愿展示-->
+<!--
+<view wx:for="{{volunteerList}}">
+    <view class="showVolunteer">
+        <view class="module" data-details="{{item}}" bindtap="getDetails" style="display: flex;">  
+            <view>
+                <image src="{{item.Photosrcs[0]}}" style="height: 60px;width: 60px; margin-top: 6px; border: 1px solid gray;"></image>
+            </view>
+            <view style="height: 90px;">
+                <text class="tittle">{{item.tittle}}</text>
+                <text class="description"> {{item.description}}</text>
+                <text class="position">{{item.position}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+-->
+<view style="height: 15vh;width: 100%;"></view>
+<view>
+<view wx:for="{{volunteerList}}" wx:for-item="item">
+    <view id="list" data-details="{{item}}" bindtap="getDetails">
+    <view style="height:2%;width:100%"></view>
+    <view id="content">
+      <view id="ima">
+        <van-image radius="20rpx" width="100%" height="100%" margin-top="5%"id="pic" src="{{item.Photosrcs[0]}}"></van-image>
+      </view>
+      <view id="con">
+        <view id="top">{{item.tittle}}</view>
+        <view id="line">
+          <view id="loc">{{item.position}}</view>
+          <view  wx:if="{{item.over}}">
+            <view id="num">{{item.now}}/{{item.maxnum}}</view>
+          </view>
+          <view wx:else>
+            <view id="num">{{item.now}}/{{item.num}}</view>
+          </view>
+        </view>
+        <view id="miao">
+          <text id="realtext">{{item.description}}</text>
+        </view>
+        <view id="time">
+            <view id="timeStr">{{item.starttimeStr}}——{{item.endtimeStr}}</view>
+        </view>
+      </view>
+    </view>
+    </view>
+</view>
+</view>

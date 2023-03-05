@@ -1,0 +1,124 @@
+
+.myview{
+    width: 100vw;
+    height: 100vh;
+    background-color:write;
+  }
+  .mytopview{
+    width: 100%;
+    height: 30%;
+    border-bottom: 3px  solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+  }
+  .mylistview{
+    width: 100%;
+    height: 24%;
+  }
+  .listview{
+    width: 100%;
+    height: 50%;
+    border-bottom: 3px  solid  black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #gro{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+  }
+  #cho{
+    width: 80%;
+    height: 60%;
+  }
+  .tipview{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    font-family: 楷体;
+  }
+  .txtview{
+    flex:4;
+  }
+  #changeimage{
+    width:100%;
+    height:60%;
+    top:10%;
+  }
+  .changepic{
+    width:100%;
+    height:100%;
+  }
+  .pic{
+    width:100%;
+    height:100%;
+  }
+  #cimg{
+    width:100%;
+    height:100%;
+    padding: 0%;
+  }
+  .imgview{
+    flex:1;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .infoview{
+    flex:3;
+    /**border:1px  solid  black;**/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #hint{
+    color: red;
+    position: relative;
+    top:70%;
+    left: 70%;
+  }
+  #longtext{
+    width: 70%;
+    height:100%;
+  }
+  #realtext{
+    width: 100%;
+    height:100%;
+  }
+  .box_1{
+    width: 100%;
+    height: 40%;
+    border-bottom: 1px  solid  black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+    color:black;
+    font-family: 楷体;
+    flex-wrap: nowrap;
+  }
+  .box{
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px  solid  black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+    color:black;
+    font-family: 楷体;
+  }
+  #final{
+    margin-top: 2%;
+  }
+  #over{
+    background-color: red;
+    color:black;
+  }
